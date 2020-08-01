@@ -1,0 +1,6 @@
+name: HopperMagnet
+version: ${project.version}
+main: xyz.vertex101.hoppermagnet.HopperMagnet
+api-version: 1.13
+authors: [Vertex101]
+description: A hopper to collect items in a range
