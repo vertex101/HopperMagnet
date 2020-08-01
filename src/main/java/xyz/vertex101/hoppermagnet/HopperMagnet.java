@@ -14,7 +14,6 @@ public final class HopperMagnet extends JavaPlugin {
     public void onEnable() {
         saveDefaultConfig();
         this.maxRange = getConfig().getInt("max-range");
-
         ItemHopMagnet.magnetHopper();
 
     }
@@ -23,4 +22,5 @@ public final class HopperMagnet extends JavaPlugin {
     public void onDisable() {
         // Plugin shutdown logic
     }
+
 }
