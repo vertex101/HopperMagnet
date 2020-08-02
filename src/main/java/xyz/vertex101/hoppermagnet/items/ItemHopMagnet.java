@@ -1,6 +1,7 @@
 package xyz.vertex101.hoppermagnet.items;
 
 import org.bukkit.*;
+import org.bukkit.block.Hopper;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -19,14 +20,19 @@ public class ItemHopMagnet implements Listener {
 
     @EventHandler
     public void onBlockPlace(BlockPlaceEvent e) {
-        if(e.getBlockPlaced().getType() == Material.HOPPER) {
-            HopperMagnet.getPlugin().magnetBlocks.add(e.getBlock());
+        if(e.getBlock().getType() == Material.HOPPER) {
+            Hopper hop = (Hopper) e.getBlock().getState();
+            if (hop.getCustomName() != null) {
+                HopperMagnet.getPlugin().getLogger().info("Adding Block: " + e.getBlock());
+                HopperMagnet.getPlugin().magnetBlocks.add(e.getBlock());
+            }
         }
     }
 
     @EventHandler
     public void onBlockBreak(BlockBreakEvent e) {
         if(e.getBlock().getType() == Material.HOPPER) {
+            HopperMagnet.getPlugin().getLogger().info("Removing Block: " + e.getBlock());
             HopperMagnet.getPlugin().magnetBlocks.remove(e.getBlock());
         }
     }

@@ -10,14 +10,13 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import xyz.vertex101.hoppermagnet.items.ItemHopMagnet;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public final class HopperMagnet extends JavaPlugin {
     public static double maxRange = 8.0D;
 
-    public final List<Block> magnetBlocks = new ArrayList<Block>();
+    public final List<Block> magnetBlocks = new CopyOnWriteArrayList<Block>();
 
     public static HopperMagnet getPlugin() {
         return JavaPlugin.getPlugin(HopperMagnet.class);
