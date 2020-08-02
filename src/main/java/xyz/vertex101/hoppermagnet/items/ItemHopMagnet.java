@@ -23,7 +23,6 @@ public class ItemHopMagnet implements Listener {
         if(e.getBlock().getType() == Material.HOPPER) {
             Hopper hop = (Hopper) e.getBlock().getState();
             if (hop.getCustomName() != null) {
-                HopperMagnet.getPlugin().getLogger().info("Adding Block: " + e.getBlock());
                 HopperMagnet.getPlugin().magnetBlocks.add(e.getBlock());
             }
         }
@@ -32,7 +31,6 @@ public class ItemHopMagnet implements Listener {
     @EventHandler
     public void onBlockBreak(BlockBreakEvent e) {
         if(e.getBlock().getType() == Material.HOPPER) {
-            HopperMagnet.getPlugin().getLogger().info("Removing Block: " + e.getBlock());
             HopperMagnet.getPlugin().magnetBlocks.remove(e.getBlock());
         }
     }
